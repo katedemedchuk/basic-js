@@ -1,5 +1,9 @@
-module.exports = function repeater(/* str, options */) {
-    throw 'Not implemented';
-    // remove line with error and write your code here
-};
-  
+module.exports = function repeater(str, options) {
+    let { repeatTimes, separator, addition, additionRepeatTimes, additionSeparator } = options;
+    separator = separator || '+';
+    additionSeparator = additionSeparator || '|';
+    addition = (addition === null) ? 'null' : addition;
+
+    const addStr = new Array(additionRepeatTimes).fill(addition).join(additionSeparator);
+    return new Array(repeatTimes).fill(str + addStr).join(separator);
+}
